@@ -1,0 +1,23 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+
+[[mods]]
+modId="gameadmin"
+version="1.1.0"
+displayName="Game Administrator"
+description='''You are the game administrator. Press G for the Admin Console: 17 abilities, operator access control (/gameadmin grant), game modes, game rules, a command line, survival command blocks, passives, flight (H) and server-side VFX everyone can see. No particles.'''
+
+[[dependencies.gameadmin]]
+modId="neoforge"
+type="required"
+versionRange="[21.1,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.gameadmin]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1,1.22)"
+ordering="NONE"
+side="BOTH"
