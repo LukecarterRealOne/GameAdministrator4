@@ -7,14 +7,15 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.CommandBlock;
-import net.neoforged.neoforge.client.event.ClientTickEvent;
-import net.neoforged.neoforge.client.event.RenderGuiEvent;
-import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.client.event.RenderGuiEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
 /** Game-bus client events: keys, the VFX overlay and the survival command block editor. */
 public class ClientEvents {
 
-    public static void onClientTick(ClientTickEvent.Post event) {
+    public static void onClientTick(TickEvent.ClientTickEvent event) {
+        if (event.phase != TickEvent.Phase.END) return;
         Minecraft mc = Minecraft.getInstance();
 
         while (ClientModEvents.OPEN.consumeClick()) {

@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'net.neoforged.moddev' version '2.0.123'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
 }
 
 version = project.mod_version
@@ -10,19 +10,18 @@ base {
     archivesName = project.mod_id
 }
 
-// Minecraft 1.21.1 runs on Java 21
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
-neoForge {
-    version = project.neo_version
+minecraft {
+    mappings channel: 'official', version: project.minecraft_version
+}
 
-    mods {
-        "gameadmin" {
-            sourceSet sourceSets.main
-        }
-    }
+dependencies {
+    minecraft "net.minecraftforge:forge:${project.minecraft_version}-${project.forge_version}"
 }
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
+
+jar.finalizedBy('reobfJar')

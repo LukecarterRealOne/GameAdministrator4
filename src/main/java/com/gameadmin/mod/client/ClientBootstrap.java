@@ -1,7 +1,7 @@
 package com.gameadmin.mod.client;
 
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.common.NeoForge;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.common.MinecraftForge;
 
 /** Registers every client-only listener. Only ever called when running on the client. */
 public final class ClientBootstrap {
@@ -9,8 +9,8 @@ public final class ClientBootstrap {
 
     public static void init(IEventBus modBus) {
         modBus.addListener(ClientModEvents::onRegisterKeys);
-        NeoForge.EVENT_BUS.addListener(ClientEvents::onClientTick);
-        NeoForge.EVENT_BUS.addListener(ClientEvents::onGui);
-        NeoForge.EVENT_BUS.addListener(ClientEvents::onRightClickBlock);
+        MinecraftForge.EVENT_BUS.addListener(ClientEvents::onClientTick);
+        MinecraftForge.EVENT_BUS.addListener(ClientEvents::onGui);
+        MinecraftForge.EVENT_BUS.addListener(ClientEvents::onRightClickBlock);
     }
 }

@@ -2,7 +2,7 @@ package com.gameadmin.mod.client;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
-import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
+import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 
 /** Mod-bus client event: the key bindings. */
 public class ClientModEvents {

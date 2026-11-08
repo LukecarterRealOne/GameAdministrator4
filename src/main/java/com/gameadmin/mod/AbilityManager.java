@@ -262,10 +262,10 @@ public final class AbilityManager {
         WorldVfx.ring(server, me, "light_blue_stained_glass", 1.2, 14.0, 0.05, 12);
         WorldVfx.sound(server, me, "minecraft:block.beacon.deactivate", 1.5f, 0.6f);
 
-        Scheduler.after(800, () -> run(server, "tick freeze"));
+        Scheduler.after(800, () -> TimeStop.start(server, me, 7_200));
         // Always thaw the world again, no matter what happens.
         Scheduler.after(8_000, () -> {
-            run(server, "tick unfreeze");
+            TimeStop.stop(server);
             WorldVfx.sound(server, me, "minecraft:block.beacon.activate", 1.5f, 1.0f);
         });
         return 8;
