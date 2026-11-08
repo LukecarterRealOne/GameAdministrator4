@@ -174,8 +174,8 @@ public class AdminScreen extends Screen {
     // ------------------------------------------------------------------ drawing
 
     @Override
-    public void renderBackground(GuiGraphics g, int mouseX, int mouseY, float partialTick) {
-        super.renderBackground(g, mouseX, mouseY, partialTick);
+    public void renderBackground(GuiGraphics g) {
+        super.renderBackground(g);
 
         // panel
         g.fill(panelX, panelY, panelX + panelW, panelY + panelH, 0xE60B0B14);
@@ -195,6 +195,7 @@ public class AdminScreen extends Screen {
 
     @Override
     public void render(GuiGraphics g, int mouseX, int mouseY, float partialTick) {
+        this.renderBackground(g);
         // live button text
         for (int i = 0; i < tabButtons.length; i++) {
             if (tabButtons[i] != null) tabButtons[i].active = (i != page);

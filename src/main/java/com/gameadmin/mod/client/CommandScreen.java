@@ -43,8 +43,8 @@ public class CommandScreen extends Screen {
     }
 
     @Override
-    public void renderBackground(GuiGraphics g, int mouseX, int mouseY, float partialTick) {
-        super.renderBackground(g, mouseX, mouseY, partialTick);
+    public void renderBackground(GuiGraphics g) {
+        super.renderBackground(g);
         g.fill(px, py, px + W, py + H, 0xE60B0B14);
         g.renderOutline(px, py, W, H, 0xFF7C4DFF);
         g.fill(px + 2, py + 2, px + W - 2, py + 22, 0xFF1A1030);
@@ -56,5 +56,11 @@ public class CommandScreen extends Screen {
     @Override
     public boolean isPauseScreen() {
         return false;
+    }
+
+    @Override
+    public void render(GuiGraphics g, int mouseX, int mouseY, float partialTick) {
+        this.renderBackground(g);
+        super.render(g, mouseX, mouseY, partialTick);
     }
 }
